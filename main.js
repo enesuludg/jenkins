@@ -67,9 +67,14 @@ let xml=`<?xml version='1.1' encoding='UTF-8'?>
   <disabled>false</disabled>
 </flow-definition>
 `
-jenkins.job.config('test', xml, function(err) {
+/* jenkins.job.config('test', xml, function(err) {
     if (err) throw err;
    
     console.log('xml');
-});
+}); */
 
+jenkins.label.get('test', function(err, data) {
+    if (err) throw err;
+   
+    console.log('label', data);
+  });
