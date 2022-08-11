@@ -71,9 +71,9 @@ let xml=`<?xml version='1.1' encoding='UTF-8'?>
 </flow-definition>
 `
 console.log(xml);
-jenkins.job.config('test', xml, function(err, data) {
+jenkins.job.config('test', xml, function(err) {
     if (err) throw err;
    
-    console.log('xml', data);
+    console.log('xml');
 });
 
