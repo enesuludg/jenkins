@@ -1,13 +1,9 @@
-require('dotenv').config();
-const jenkinsH = require('jenkins');
+//require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
+//const jenkinsH = require('jenkins');
+import jenkinsH from 'jenkins';
 const jenkins = new jenkinsH({ baseUrl: process.env.BASEURL, crumbIssuer: true });
-//const fs = require("fs");
-//const xml2js = require('xml2js');
-jenkins.info(function(err, data) {
-    if (err) throw err;
-   
-    console.log('info', data);
-});
 
 
 let xml=`<?xml version='1.1' encoding='UTF-8'?>
@@ -71,7 +67,6 @@ let xml=`<?xml version='1.1' encoding='UTF-8'?>
   <disabled>false</disabled>
 </flow-definition>
 `
-console.log(xml);
 jenkins.job.config('test', xml, function(err) {
     if (err) throw err;
    

@@ -8,6 +8,7 @@
     "dev": "nodemon main.js",
     "start": "pm2 start main.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/enesuludg/jenkins.git"
