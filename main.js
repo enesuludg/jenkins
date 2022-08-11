@@ -1,5 +1,6 @@
 require('dotenv').config();
-const jenkins = require('jenkins')({ baseUrl: process.env.BASEURL, crumbIssuer: true });
+const jenkinsH = require('jenkins');
+const jenkins = new jenkinsH({ baseUrl: process.env.BASEURL, crumbIssuer: true });
 //const fs = require("fs");
 //const xml2js = require('xml2js');
 jenkins.info(function(err, data) {
