@@ -1,5 +1,5 @@
 require('dotenv').config();
-//const jenkins = require('jenkins')({ baseUrl: process.env.BASEURL, crumbIssuer: true });
+const jenkins = require('jenkins')({ baseUrl: process.env.BASEURL, crumbIssuer: true });
 //const fs = require("fs");
 //const xml2js = require('xml2js');
 jenkins.info(function(err, data) {
@@ -70,8 +70,8 @@ let xml=`<?xml version='1.1' encoding='UTF-8'?>
   <disabled>false</disabled>
 </flow-definition>
 `
-
-jenkins.job.config('test',xml, function(err, data) {
+console.log(xml);
+jenkins.job.config('test', xml, function(err, data) {
     if (err) throw err;
    
     console.log('xml', data);
